@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -24,38 +24,20 @@ public class MainMenu : MonoBehaviour {
   
   public void SetVSyncRatio(System.Int32 value)
   {
-    // Clear fpsTarget
-    PlayerPrefs.SetInt("fpsTarget", 0);
-    fpsTarget.value = 0;
-    Application.targetFrameRate = -1;
-		
-    if (value == 0)
-    {
-      SetFpsTarget(3);
-    }
-		
     PlayerPrefs.SetInt("vSyncRate", value);
-    vSyncRate.value = value;
-		
     QualitySettings.vSyncCount = value;
+
+    if (value != 0)
+      fpsTarget.value = 0;
   }
 
   public void SetFpsTarget(System.Int32 value)
   {
-    // Clear vSync Count
-    PlayerPrefs.SetInt("vSyncRate", 0);
-    vSyncRate.value = 0;
-    QualitySettings.vSyncCount = 0;
-		
-    if (value == 0)
-    {
-      SetVSyncRatio(2);
-    }
-		
     PlayerPrefs.SetInt("fpsTarget", value);
-    fpsTarget.value = value;
-		
     Application.targetFrameRate = value != 0 ? value * 10 : -1;
+
+    if (value != 0)
+      vSyncRate.value = 0;
   }
 
   void LateUpdate() {
