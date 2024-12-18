@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.Tracing;
 using Interaction.Signal;
 using TMPro;
@@ -35,7 +35,7 @@ public class PinNameDisplay : MonoBehaviour
 
         PinEvent = transform.parent.GetComponentInChildren<PinEvent>();
         PinEvent.MouseInteraction.MouseExitted += MouseExitHandler;
-        PinEvent.OnMOuseOver += OverHandler;
+        PinEvent.OnMouseOverAction += OverHandler;
 
 
         ScalingManager.i.OnScaleChange += UpdateScale;
