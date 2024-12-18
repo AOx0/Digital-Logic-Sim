@@ -9,7 +9,7 @@ namespace SebInput.Internal
 		// Called when mouse enters composite collider
 		public event System.Action MouseEntered;
 		// Called when mouse exits composite collider
-		public event System.Action MouseExitted;
+		public event System.Action MouseExited;
 
 		// Called when left mouse is pressed down over composite collider
 		public event System.Action LeftMouseDown;
@@ -37,7 +37,7 @@ namespace SebInput.Internal
 
 		public void OnMouseExit()
 		{
-			MouseExitted?.Invoke();
+			MouseExited?.Invoke();
 		}
 
 		public void OnMousePressDown(MouseEventSystem.MouseButton mouseButton)
@@ -52,7 +52,7 @@ namespace SebInput.Internal
 					break;
 			}
 		}
-		
+
 
 		public void OnClickCompleted(MouseEventSystem.MouseButton mouseButton)
 		{

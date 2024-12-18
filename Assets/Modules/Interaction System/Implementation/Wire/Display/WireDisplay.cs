@@ -58,7 +58,7 @@ public class WireDisplay : ThemeDisplay
             wire.RequestFocus();
             SelectAppearance();
         };
-        wireEventMouse.MouseInteraction.MouseExitted += (_) =>
+        wireEventMouse.MouseInteraction.MouseExited += (_) =>
         {
             wire.ReleaseFocus();
             NormalAppearance();

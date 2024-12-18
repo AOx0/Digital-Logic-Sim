@@ -13,7 +13,7 @@ namespace SebInput
 		// Called when mouse enters composite collider
 		public event System.Action<T> MouseEntered;
 		// Called when mouse exits composite collider
-		public event System.Action<T> MouseExitted;
+		public event System.Action<T> MouseExited;
 
 		// Called when left mouse is pressed down over composite collider
 		public event System.Action<T> LeftMouseDown;
@@ -37,9 +37,9 @@ namespace SebInput
 		{
 			var listener = listenerTarget.AddComponent<MouseInteractionListener>();
 			Context = eventContext;
-			
+
 			listener.MouseEntered += () => { MouseIsOver = true; MouseEntered?.Invoke(eventContext); };
-			listener.MouseExitted += () => { MouseIsOver = false; MouseExitted?.Invoke(eventContext); };
+			listener.MouseExited += () => { MouseIsOver = false; MouseExited?.Invoke(eventContext); };
 			listener.LeftMouseDown += () => LeftMouseDown?.Invoke(eventContext);
 			listener.RightMouseDown += () => RightMouseDown?.Invoke(eventContext);
 			listener.LeftMouseReleased += () => LeftMouseReleased?.Invoke(eventContext);
