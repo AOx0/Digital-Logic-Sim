@@ -87,7 +87,7 @@ public class ChipInterfaceEditor : MonoBehaviour
         ScalingManager.i.OnScaleChange += UpdateScale;
         CreateGroup.i.onGroupSizeSettingPressed += OnGroupSizeSettingPressed;
         InterfaceEvent.mouseInteraction.MouseEntered += (_) => ShowPreviewSignal(true);
-        InterfaceEvent.mouseInteraction.MouseExitted += (_) => ShowPreviewSignal(false);
+        InterfaceEvent.mouseInteraction.MouseExited += (_) => ShowPreviewSignal(false);
         InterfaceEvent.mouseInteraction.LeftMouseDown += (_) => SpawnSignal();
 
 

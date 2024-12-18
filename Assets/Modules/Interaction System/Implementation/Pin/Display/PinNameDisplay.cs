@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.Tracing;
 using Interaction.Signal;
 using TMPro;
@@ -26,7 +26,7 @@ public class PinNameDisplay : MonoBehaviour
         var interaction = GetComponentInParent<SignalInteraction>();
         if (interaction)
         {
-            Interaction =interaction;
+            Interaction = interaction;
             IsInteraction = true;
             Interaction.OnPropertyChange += NameChanged;
         }
@@ -34,12 +34,12 @@ public class PinNameDisplay : MonoBehaviour
         pin = GetComponentInParent<Pin>();
 
         PinEvent = transform.parent.GetComponentInChildren<PinEvent>();
-        PinEvent.MouseInteraction.MouseExitted += MouseExitHandler;
-        PinEvent.OnMOuseOver += OverHandler;
+        PinEvent.MouseInteraction.MouseExited += MouseExitHandler;
+        PinEvent.OnMouseOverAction += OverHandler;
 
 
         ScalingManager.i.OnScaleChange += UpdateScale;
-        SetMode( ChipEditorOptions.instance.ActiveMode);
+        SetMode(ChipEditorOptions.instance.ActiveMode);
     }
 
 
@@ -61,7 +61,8 @@ public class PinNameDisplay : MonoBehaviour
     //cambiare il metodo d accesso
     private void Start()
     {
-        UpdateScale();
+        // NameChanged() calls UpdateScale() automatically
+        NameChanged();
         ChipEditorOptions.instance.OnPinDisplayActionChange += SetMode;
     }
 

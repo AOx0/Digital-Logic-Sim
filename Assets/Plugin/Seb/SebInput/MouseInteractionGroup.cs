@@ -10,7 +10,7 @@ namespace SebInput
 	{
 
 		public event System.Action<T> MouseEntered;
-		public event System.Action<T> MouseExitted;
+		public event System.Action<T> MouseExited;
 
 		public event System.Action<T> LeftMouseDown;
 		public event System.Action<T> RightMouseDown;
@@ -23,7 +23,7 @@ namespace SebInput
 		public void AddInteractionToGroup(MouseInteraction<T> interaction)
 		{
 			interaction.MouseEntered += (e) => MouseEntered?.Invoke(e);
-			interaction.MouseExitted += (e) => MouseExitted?.Invoke(e);
+			interaction.MouseExited += (e) => MouseExited?.Invoke(e);
 			interaction.LeftMouseDown += (e) => LeftMouseDown?.Invoke(e);
 			interaction.RightMouseDown += (e) => RightMouseDown?.Invoke(e);
 			interaction.LeftMouseReleased += (e) => LeftMouseReleased?.Invoke(e);
