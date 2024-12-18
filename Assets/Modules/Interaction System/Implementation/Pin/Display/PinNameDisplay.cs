@@ -61,7 +61,8 @@ public class PinNameDisplay : MonoBehaviour
     //cambiare il metodo d accesso
     private void Start()
     {
-        UpdateScale();
+        // NameChanged() calls UpdateScale() automatically
+        NameChanged();
         ChipEditorOptions.instance.OnPinDisplayActionChange += SetMode;
     }
 
